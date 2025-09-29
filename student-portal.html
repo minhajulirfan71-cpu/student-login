@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ 
+  <title>Student Portal - Al-Madina HSS & SC</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f6fa;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background: #fff;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .sidebar .logo {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .sidebar .logo img {
+      width: 150px;
+    }
+
+    .sidebar h2 {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .menu {
+      list-style: none;
+    }
+
+    .menu li {
+      padding: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 6px;
+      margin-bottom: 5px;
+    }
+
+    .menu li:hover, .menu li.active {
+      background: #eaf1ff;
+      color: #0047b3;
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .header {
+      background: #5a48f8;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .profile-card {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #0080ff;
+      margin-right: 20px;
+    }
+
+    .profile-info h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .student-id {
+      display: inline-block;
+      margin-top: 8px;
+      background: #007bff;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    table th {
+      background: #f2f2f2;
+    }
+
+    .verify-btn {
+      background: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      margin-left: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .verify-btn:hover {
+      background: #cc0000;
+    }
+
+    /* Section control */
+    .section { display: none; }
+    .section.active { display: block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="mul_logo.jpg" alt="Logo">
+        <h2>Al-Madina Higher Secondary School Rahimyar Khan</h2>
+      </div>
+      <ul class="menu">
+        <li class="menu-item active" data-target="dashboard">📊 Dashboard</li>
+        <li class="menu-item" data-target="profile">📄 Student Profile</li>
+      <li class="menu-item" data-target="schedule">📚 Lecture Schedule</li>
+
+       <li class="menu-item" data-target="fee-challans">💳 Fee Challans</li>
+
+        <li class="menu-item" data-target="grade-book">📒 Grade Book</li>
+
+       <li class="menu-item" data-target="roll-slip">📝 Roll Number Slip</li>
+
+        <li class="menu-item" data-target="datasheet">📅 Datasheet</li>
+
+        <li>📆 Academic Calender</li>
+        <li>👨‍🎓 Student Services</li>
+        <li>📖 Scheme of Study</li>
+        <li>🎓 My Degree Scenario</li>
+        <li>📝 Course Registration</li>
+        <li>🔔 E-Notifications</li>
+        <li>✅ Todo List</li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+
+      <!-- Dashboard Section -->
+      <section id="dashboard" class="section active">
+        <div class="header">📊 Dashboard</div>
+        <div class="grid">
+          <div class="card">
+            <h3>📘 Current Class</h3>
+            <p>7th (20 Paras Completed)</p>
+          </div>
+          <div class="card">
+            <h3>📅 Upcoming Events</h3>
+            <ul>
+              <li>📌 Mid Term Exams: <b>Oct 20</b></li>
+              <li>📌 Eid Holidays: <b>Nov 10</b></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>📝 Tasks</h3>
+            <ul>
+              <li>Revise Para 17</li>
+              <li>Practice Tajweed</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>📈 Progress</h3>
+            <p>Completed: <b>20 Paras</b></p>
+            <p>Remaining: <b>10 Paras</b></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Profile Section -->
+      <section id="profile" class="section">
+        <div class="header">📄 Student Profile</div>
+
+        <div class="profile-card">
+          <img src="Shaykh-ul-Islam-Dr-Muhammad-Tahir-ul-Qadri_(3x4_cropped).jpg" alt="Profile" class="profile-pic">
+          <div class="profile-info">
+            <h2>MUHAMMAD AWAN</h2>
+            <span class="student-id">2025S-amsug-0134</span>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Personal Information</h3>
+            <p><b>Name:</b> MUHAMMAD AWAN</p>
+            <p><b>Father Name:</b> MUHAMMAD AWAN</p>
+            <p><b>Email:</b> MA01543@gmail.com 
+              <button class="verify-btn" id="verifyBtn">Verify Now</button>
+            </p>
+            <p><b>Contact No.:</b> 0300-3003000</p>
+          </div>
+
+          <div class="card">
+            <h3>Addresses</h3>
+            <p><b>Permanent Address:</b> Jinnah Park, Rahim Yar Khan</p>
+            <p><b>Mailing Address:</b> Jinnah Park, Rahim Yar Khan</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Academic Information</h3>
+            <p><b>Registration No:</b> 2025S-amsug-0134</p>
+            <p><b>Session:</b> Spring 2025</p>
+            <p><b>Program:</b> Hifz ul Quran / Middle</p>
+            <p><b>Admission Date:</b> 03-03-2025</p>
+            <p><b>Form No:</b> 37591</p>
+            <p><b>Timing:</b> Morning</p>
+            <p><b>Current Class/Year:</b> 7th / 20 Paras</p>
+          </div>
+
+          <div class="card">
+            <h3>Academic History</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Degree</th>
+                  <th>Total Marks</th>
+                  <th>Obtained</th>
+                  <th>Percentage</th>
+                  <th>Year</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Primary</td>
+                  <td>400</td>
+                  <td>301</td>
+                  <td>64%</td>
+                  <td>2022</td>
+                </tr>
+                <tr>
+                  <td>6th</td>
+                  <td>700</td>
+                  <td>570</td>
+                  <td>81%</td>
+                  <td>2025</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <!-- Lecture Schedule Section -->
+<section id="schedule" class="section">
+  <div class="header">📚 Lecture Schedule</div>
+
+  <div class="card">
+    <h3>🗓️ Today's Schedule</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Time</th>
+          <th>Teacher</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>English</td>
+          <td>08:00 AM - 08:30 AM</td>
+          <td>Miss Ayesha</td>
+        </tr>
+        <tr>
+          <td>Urdu</td>
+          <td>08:30 AM - 09:00 AM</td>
+          <td>Miss Sana</td>
+        </tr>
+        <tr>
+          <td>Math</td>
+          <td>09:00 AM - 09:30 AM</td>
+          <td>Sir Bilal</td>
+        </tr>
+        <tr>
+          <td>Pak Studies</td>
+          <td>09:30 AM - 10:00 AM</td>
+          <td>Miss Hina</td>
+        </tr>
+        <tr>
+          <td>Islamiyat</td>
+          <td>10:00 AM - 10:30 AM</td>
+          <td>Mufti Imran</td>
+        </tr>
+        <tr>
+          <td>Science</td>
+          <td>10:30 AM - 11:00 AM</td>
+          <td>Sir Noman</td>
+        </tr>
+        <tr>
+          <td>Break</td>
+          <td>11:00 AM - 11:30 AM</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Quran (Hifz)</td>
+          <td>11:30 AM - 12:30 PM</td>
+          <td>Qari Aslam</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- Fee Challans Section -->
+<section id="fee-challans" class="section">
+  <div class="header">💳 Fee Challans</div>
+
+  <!-- Banner -->
+  <div class="card mb-4 p-0" style="overflow: hidden;">
+    <div style="
+      background-image: url('https://cms.mul.edu.pk/images/v2/flat-lay-clipboards-with-copy.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    ">
+      <h1 style="background: rgba(0, 0, 0, 0.5); padding: 10px 20px; border-radius: 8px;">Fee Challans</h1>
+    </div>
+  </div>
+
+  <div class="card p-4">
+    <!-- Challan Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered challan-table">
+        <thead class="table-light text-center">
+          <tr>
+            <th>Sr. #</th>
+            <th>Challan</th>
+            <th>Semester</th>
+            <th>Issued Date</th>
+            <th>Due Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center">1</td>
+            <td><a href="#" class="text-primary">20250706515</a></td>
+            <td class="text-center">Spring 2025</td>
+            <td>2025-07-21</td>
+            <td>2025-08-25</td>
+            <td class="text-center">35,004</td>
+            <td class="text-center"><span class="badge bg-success">Paid</span></td>
+            <td class="text-center">—</td>
+          </tr>
+          <tr>
+            <td class="text-center">2</td>
+            <td><a href="#" class="text-primary">20250204256</a></td>
+            <td class="text-center">Spring 2025</td>
+            <td>2025-02-28</td>
+            <td>2025-06-10</td>
+            <td class="text-center">16,145</td>
+            <td class="text-center"><span class="badge bg-success">Paid</span></td>
+            <td class="text-center">—</td>
+          </tr>
+          <tr>
+            <td class="text-center">3</td>
+            <td><a href="#" class="text-primary">20250204255</a></td>
+            <td class="text-center">Spring 2025</td>
+            <td>2025-02-28</td>
+            <td>2025-03-03</td>
+            <td class="text-center">31,200</td>
+            <td class="text-center"><span class="badge bg-success">Paid</span></td>
+            <td class="text-center">—</td>
+          </tr>
+          <tr class="table-light">
+            <th colspan="5" class="text-center">Total Payable Amount</th>
+            <th class="text-center">0</th>
+            <td colspan="2" class="text-center">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <!-- Notes -->
+    <div class="note-section mt-4">
+      <br><h4>Note:</h4></br>
+      <ol>
+        <li>All students are directed to submit a copy of their fee challan to the Accounts Branch within <strong>3 days</strong> after depositing the fee in the bank <span class="text-danger">*</span>.</li>
+        <li>Students must ask the bank officer to enter the <strong>11-digit challan number</strong> on the bank data form <span class="text-danger">*</span>.</li>
+        <li>If the fee status is not updated as <strong>Paid</strong> on CMS after depositing the fee, contact the Accounts Branch immediately.</li>
+        <li>After the due date, a fine of <strong>Rs. 100 per day</strong> will be charged for each challan.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+<!-- Grade Book Section -->
+<section id="grade-book" class="section">
+
+  <!-- Banner Header -->
+  <div class="blog-article-single" style="background-size: cover; background-repeat: no-repeat; background-image: url('https://cms.mul.edu.pk/images/v2/flat-lay-clipboards-with-copy.jpg');" data-src="images/v2/flat-lay-clipboards-with-copy.jpg" uk-img>
+    <div class="container-small">
+      <h1 class="">Grade Book</h1>
+    </div>
+  </div>
+
+  <!-- Grade Book Content -->
+  <div class="container-fluid mt-5">
+    <div class="card p-4">
+      <h3>📘 Grade Summary</h3>
+      <table class="table table-bordered mt-3">
+        <thead class="table-light">
+          <tr>
+            <th>Subject</th>
+            <th>Semester</th>
+            <th>Marks Obtained</th>
+            <th>Total Marks</th>
+            <th>Grade</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>English</td>
+            <td>Spring 2025</td>
+            <td>87</td>
+            <td>100</td>
+            <td>A</td>
+            <td>Passed</td>
+          </tr>
+          <tr>
+            <td>Math</td>
+            <td>Spring 2025</td>
+            <td>92</td>
+            <td>100</td>
+            <td>A+</td>
+            <td>Passed</td>
+          </tr>
+          <tr>
+            <td>Science</td>
+            <td>Spring 2025</td>
+            <td>78</td>
+            <td>100</td>
+            <td>B+</td>
+            <td>Passed</td>
+          </tr>
+          <tr>
+            <td>Urdu</td>
+            <td>Spring 2025</td>
+            <td>88</td>
+            <td>100</td>
+            <td>A</td>
+            <td>Passed</td>
+          </tr>
+          <tr>
+            <td>Computer</td>
+            <td>Spring 2025</td>
+            <td>97</td>
+            <td>100</td>
+            <td>A+</td>
+            <td>Passed</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Optional Note -->
+      <p class="text-muted mt-3"><em>This is a Computer Generated Transcript.</em></p>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- Roll Number Slip Section -->
+<section id="roll-slip" class="section">
+  <div class="header">📝 Roll Number Slip</div>
+  <div class="card">
+    <h1 style="font-weight:600; color:red; text-align:center; margin-top:50px;">
+      Please contact with Accounts office.
+    </h1>
+  </div>
+</section>
+<!-- Date Sheet Section -->
+<section id="datasheet" class="section">
+  <div class="header">📅 Date Sheet</div>
+
+  <div class="card">
+    <div class="blog-article-single"
+      style="background-position: center center; background-image: url('https://cms.mul.edu.pk/images/v2/flat-lay-clipboards-with-copy.jpg');">
+      <div class="container-small">
+        <h1 style="padding: 20px 0; text-align: center;">Date Sheet</h1>
+      </div>
+    </div>
+
+    <div class="container-medium blog-article-content-read uk-overflow-auto" style="padding: 20px;">
+      <div class="row">
+        <div class="col-12">
+          <h3>Date Sheet</h3>
+        </div>
+        <div class="col-12 uk-overflow-auto" uk-overflow-auto="" style="min-height: 150px;">
+          <hr>
+          <!-- You can insert actual date sheet table here in future -->
+          <p style="text-align: center; font-size: 16px; font-weight: bold;">Date Sheet will be available soon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    </main>
+  </div>
+
+  <!-- Script -->
+  <script>
+   // Sidebar navigation
+const menuItems = document.querySelectorAll('.menu-item');
+const sections = document.querySelectorAll('.section');
+
+menuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const target = item.getAttribute('data-target');
+
+    sections.forEach(sec => sec.classList.remove('active'));
+    document.getElementById(target).classList.add('active');
+
+    menuItems.forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+  });
+});
+
+// Email verification
+document.getElementById("verifyBtn").addEventListener("click", () => {
+  alert("✅ Verification link sent to your email!");
+});
+
+
+
+  </script>
+</body>
+</html>
